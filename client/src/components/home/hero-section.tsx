@@ -10,7 +10,7 @@ export function HeroSection() {
           backgroundImage: "url('https://images.unsplash.com/photo-1489370321024-e0410ad08da4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')",
         }}
       >
-        <div className="absolute inset-0 bg-secondary bg-opacity-80"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
       </div>
 
       <div className="container mx-auto text-center relative z-10">
