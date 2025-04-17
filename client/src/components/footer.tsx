@@ -36,28 +36,28 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/properties?listingType=sale">
-                  <a className="text-gray-300 hover:text-primary transition-colors">Properties for Sale</a>
+                <Link href="/properties?listingType=sale" className="text-gray-300 hover:text-primary transition-colors">
+                  Properties for Sale
                 </Link>
               </li>
               <li>
-                <Link href="/properties?listingType=rent">
-                  <a className="text-gray-300 hover:text-primary transition-colors">Properties for Rent</a>
+                <Link href="/properties?listingType=rent" className="text-gray-300 hover:text-primary transition-colors">
+                  Properties for Rent
                 </Link>
               </li>
               <li>
-                <Link href="/post-listing">
-                  <a className="text-gray-300 hover:text-primary transition-colors">List Your Property</a>
+                <Link href="/post-listing" className="text-gray-300 hover:text-primary transition-colors">
+                  List Your Property
                 </Link>
               </li>
               <li>
-                <Link href="/about">
-                  <a className="text-gray-300 hover:text-primary transition-colors">About Us</a>
+                <Link href="/about" className="text-gray-300 hover:text-primary transition-colors">
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
-                  <a className="text-gray-300 hover:text-primary transition-colors">Contact Us</a>
+                <Link href="/contact" className="text-gray-300 hover:text-primary transition-colors">
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -68,28 +68,28 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4">Popular Locations</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/properties?country=Nigeria&city=Lagos">
-                  <a className="text-gray-300 hover:text-primary transition-colors">Lagos, Nigeria</a>
+                <Link href="/properties?country=Nigeria&city=Lagos" className="text-gray-300 hover:text-primary transition-colors">
+                  Lagos, Nigeria
                 </Link>
               </li>
               <li>
-                <Link href="/properties?country=Kenya&city=Nairobi">
-                  <a className="text-gray-300 hover:text-primary transition-colors">Nairobi, Kenya</a>
+                <Link href="/properties?country=Kenya&city=Nairobi" className="text-gray-300 hover:text-primary transition-colors">
+                  Nairobi, Kenya
                 </Link>
               </li>
               <li>
-                <Link href="/properties?country=South Africa&city=Cape Town">
-                  <a className="text-gray-300 hover:text-primary transition-colors">Cape Town, South Africa</a>
+                <Link href="/properties?country=South Africa&city=Cape Town" className="text-gray-300 hover:text-primary transition-colors">
+                  Cape Town, South Africa
                 </Link>
               </li>
               <li>
-                <Link href="/properties?country=Ghana&city=Accra">
-                  <a className="text-gray-300 hover:text-primary transition-colors">Accra, Ghana</a>
+                <Link href="/properties?country=Ghana&city=Accra" className="text-gray-300 hover:text-primary transition-colors">
+                  Accra, Ghana
                 </Link>
               </li>
               <li>
-                <Link href="/properties?country=Egypt&city=Cairo">
-                  <a className="text-gray-300 hover:text-primary transition-colors">Cairo, Egypt</a>
+                <Link href="/properties?country=Egypt&city=Cairo" className="text-gray-300 hover:text-primary transition-colors">
+                  Cairo, Egypt
                 </Link>
               </li>
             </ul>

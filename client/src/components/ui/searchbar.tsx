@@ -170,7 +170,7 @@ export function SearchBar({ className }: SearchBarProps) {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectItem value="">Any</SelectItem>
+                    <SelectItem value="any">Any</SelectItem>
                     <SelectItem value="1">1+</SelectItem>
                     <SelectItem value="2">2+</SelectItem>
                     <SelectItem value="3">3+</SelectItem>
@@ -191,7 +191,7 @@ export function SearchBar({ className }: SearchBarProps) {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectItem value="">Any</SelectItem>
+                    <SelectItem value="any">Any</SelectItem>
                     <SelectItem value="1">1+</SelectItem>
                     <SelectItem value="2">2+</SelectItem>
                     <SelectItem value="3">3+</SelectItem>
@@ -232,7 +232,7 @@ export function SearchBar({ className }: SearchBarProps) {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectItem value="">Select Features</SelectItem>
+                    <SelectItem value="any">Select Features</SelectItem>
                     <SelectItem value="Pool">Pool</SelectItem>
                     <SelectItem value="Garden">Garden</SelectItem>
                     <SelectItem value="Garage">Garage</SelectItem>
@@ -253,7 +253,7 @@ export function SearchBar({ className }: SearchBarProps) {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectItem value="">Any</SelectItem>
+                    <SelectItem value="any">Any</SelectItem>
                     <SelectItem value="2023">Last 1 year</SelectItem>
                     <SelectItem value="2019">Last 5 years</SelectItem>
                     <SelectItem value="2014">Last 10 years</SelectItem>
