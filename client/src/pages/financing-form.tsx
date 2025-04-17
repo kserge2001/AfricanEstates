@@ -54,14 +54,15 @@ export default function FinancingForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Fetch countries
-  const { data: countries } = useQuery<string[]>({
+  const { data: countryData } = useQuery<string[]>({
     queryKey: ["/api/countries"],
-    select: (data) => 
-      data.map((country): Country => ({
-        name: country,
-        code: country.substring(0, 2).toUpperCase(),
-      })),
   });
+  
+  // Transform country strings into Country objects
+  const countries = countryData?.map((country): Country => ({
+    name: country,
+    code: country.substring(0, 2).toUpperCase(),
+  }));
 
   // Fetch currencies
   const { data: currencies } = useQuery<Currency[]>({
@@ -245,7 +246,7 @@ export default function FinancingForm() {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                {countries?.map((country) => (
+                                {countries ? countries.map((country) => (
                                   <SelectItem key={country.name} value={country.name}>
                                     <div className="flex items-center">
                                       <img 
@@ -256,7 +257,7 @@ export default function FinancingForm() {
                                       {country.name}
                                     </div>
                                   </SelectItem>
-                                ))}
+                                )) : <SelectItem value="">Loading countries...</SelectItem>}
                               </SelectContent>
                             </Select>
                             <FormMessage />
@@ -372,11 +373,11 @@ export default function FinancingForm() {
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              {currencies?.map((currency) => (
+                              {currencies ? currencies.map((currency) => (
                                 <SelectItem key={currency.code} value={currency.code}>
                                   {currency.code} - {currency.name}
                                 </SelectItem>
-                              ))}
+                              )) : <SelectItem value="USD">Loading currencies...</SelectItem>}
                             </SelectContent>
                           </Select>
                           <FormDescription>

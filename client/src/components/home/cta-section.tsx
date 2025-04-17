@@ -24,6 +24,11 @@ export function CTASection() {
               Start Browsing
             </Button>
           </Link>
+          <Link href="/financing">
+            <Button className="bg-accent2 hover:bg-accent2/80 text-white">
+              Get Financing
+            </Button>
+          </Link>
           <Link href="/post-listing">
             <Button variant="outline" className="bg-white text-secondary hover:bg-gray-100">
               List Your Property
