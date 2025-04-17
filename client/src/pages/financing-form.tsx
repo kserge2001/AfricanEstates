@@ -257,7 +257,7 @@ export default function FinancingForm() {
                                       {country.name}
                                     </div>
                                   </SelectItem>
-                                )) : <SelectItem value="">Loading countries...</SelectItem>}
+                                )) : <SelectItem value="loading">Loading countries...</SelectItem>}
                               </SelectContent>
                             </Select>
                             <FormMessage />
