@@ -218,7 +218,7 @@ export default function Properties() {
                           <SelectValue placeholder="Any country" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="">Any country</SelectItem>
+                          <SelectItem value="any">Any country</SelectItem>
                           <SelectItem value="Nigeria">Nigeria</SelectItem>
                           <SelectItem value="Kenya">Kenya</SelectItem>
                           <SelectItem value="South Africa">South Africa</SelectItem>
@@ -402,7 +402,7 @@ export default function Properties() {
                         <SelectValue placeholder="Any" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="">Any</SelectItem>
+                        <SelectItem value="any">Any</SelectItem>
                         <SelectItem value="sale">For Sale</SelectItem>
                         <SelectItem value="rent">For Rent</SelectItem>
                       </SelectContent>
@@ -421,7 +421,7 @@ export default function Properties() {
                         <SelectValue placeholder="Any" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="">Any</SelectItem>
+                        <SelectItem value="any">Any</SelectItem>
                         <SelectItem value="apartment">Apartment</SelectItem>
                         <SelectItem value="house">House</SelectItem>
                         <SelectItem value="villa">Villa</SelectItem>
@@ -443,7 +443,7 @@ export default function Properties() {
                         <SelectValue placeholder="Any country" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="">Any country</SelectItem>
+                        <SelectItem value="any">Any country</SelectItem>
                         <SelectItem value="Nigeria">Nigeria</SelectItem>
                         <SelectItem value="Kenya">Kenya</SelectItem>
                         <SelectItem value="South Africa">South Africa</SelectItem>
@@ -494,7 +494,7 @@ export default function Properties() {
                           <SelectValue placeholder="Any" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="">Any</SelectItem>
+                          <SelectItem value="any">Any</SelectItem>
                           <SelectItem value="1">1+</SelectItem>
                           <SelectItem value="2">2+</SelectItem>
                           <SelectItem value="3">3+</SelectItem>
@@ -515,7 +515,7 @@ export default function Properties() {
                           <SelectValue placeholder="Any" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="">Any</SelectItem>
+                          <SelectItem value="any">Any</SelectItem>
                           <SelectItem value="1">1+</SelectItem>
                           <SelectItem value="2">2+</SelectItem>
                           <SelectItem value="3">3+</SelectItem>

@@ -82,8 +82,8 @@ export function PropertyCard({ property }: PropertyCardProps) {
         <hr className="my-3" />
         <div className="flex justify-between items-center">
           <span className="text-sm text-gray-500">Listed {timeAgo} ago</span>
-          <Link href={`/property/${id}`}>
-            <a className="text-secondary hover:text-primary font-medium">View Details</a>
+          <Link href={`/property/${id}`} className="text-secondary hover:text-primary font-medium">
+            View Details
           </Link>
         </div>
       </CardContent>
