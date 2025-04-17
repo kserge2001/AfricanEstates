@@ -41,22 +41,26 @@ export function SearchBar({ className }: SearchBarProps) {
   };
 
   const handleSearch = () => {
-    // Combine basic and advanced params, converting numbers as needed
-    const params: Record<string, string> = { ...searchParams };
+    // Create a record to store string parameters
+    const params: Record<string, string> = {};
     
-    if (advanced.minPrice) params.minPrice = advanced.minPrice;
-    if (advanced.maxPrice) params.maxPrice = advanced.maxPrice;
-    if (advanced.bedrooms) params.bedrooms = advanced.bedrooms;
-    if (advanced.bathrooms) params.bathrooms = advanced.bathrooms;
-    if (advanced.minArea) params.minArea = advanced.minArea;
-    if (advanced.maxArea) params.maxArea = advanced.maxArea;
-    if (advanced.features) params.features = advanced.features;
-    if (advanced.yearBuilt) params.yearBuilt = advanced.yearBuilt;
+    // Add basic search params that aren't empty
+    if (searchParams.listingType) params.listingType = searchParams.listingType;
+    if (searchParams.country && searchParams.country !== "any") params.country = searchParams.country;
+    if (searchParams.propertyType && searchParams.propertyType !== "any") params.propertyType = searchParams.propertyType;
+    
+    // Add advanced params, converting to strings
+    if (advanced.minPrice) params.minPrice = advanced.minPrice.toString();
+    if (advanced.maxPrice) params.maxPrice = advanced.maxPrice.toString();
+    if (advanced.bedrooms && advanced.bedrooms !== "any") params.bedrooms = advanced.bedrooms.toString();
+    if (advanced.bathrooms && advanced.bathrooms !== "any") params.bathrooms = advanced.bathrooms.toString();
+    if (advanced.minArea) params.minArea = advanced.minArea.toString();
+    if (advanced.maxArea) params.maxArea = advanced.maxArea.toString();
+    if (advanced.features && advanced.features !== "any") params.features = advanced.features;
+    if (advanced.yearBuilt && advanced.yearBuilt !== "any") params.yearBuilt = advanced.yearBuilt.toString();
     
     // Convert to query string
-    const queryString = new URLSearchParams(
-      Object.entries(params).filter(([_, v]) => v !== "")
-    ).toString();
+    const queryString = new URLSearchParams(params).toString();
     
     setLocation(`/properties?${queryString}`);
   };
