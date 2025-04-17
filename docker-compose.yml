@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      target: ${NODE_ENV:-development} # Use development or production based on NODE_ENV
+    ports:
+      - "3000:3000" # Expose the web application
+    depends_on:
+      - postgres
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-african_estates}
+    volumes:
+      # For development, mount the source code for hot reloading
+      - .:/app
+      - /app/node_modules # Don't overwrite node_modules
+    # Add the command to run migrations before starting the app
+    command: >
+      sh -c "
+        if [ "$${NODE_ENV}" = "development" ]; then
+          npm run db:push && npm run dev
+        else
+          npm run db:push && npm start
+        fi
+      "
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - POSTGRES_DB=${POSTGRES_DB:-african_estates}
+    ports:
+      - "5432:5432" # Expose PostgreSQL port for external tools
+    volumes:
+      - postgres-data:/var/lib/postgresql/data # Persist database data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres-data: # Named volume for PostgreSQL data persistence
+

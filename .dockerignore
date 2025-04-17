@@ -1,0 +1,42 @@
+# Node.js dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Build outputs
+dist
+build
+.next
+out
+
+# Development files
+.git
+.github
+.vscode
+.idea
+*.log
+*.md
+!README.md
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Testing files
+coverage
+__tests__
+test
+tests
+*.test.js
+*.spec.js
+
+# Configuration files that shouldn't be in Docker
+.dockerignore
+Dockerfile
+docker-compose*.yml
+
