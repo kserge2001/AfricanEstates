@@ -1,4 +1,4 @@
-import { users, properties, type User, type InsertUser, type Property, type InsertProperty, PropertySearch } from "@shared/schema";
+import { type User, type InsertUser, type Property, type InsertProperty, PropertySearch, FinancingRequest } from "@shared/schema";
 import session from "express-session";
 import createMemoryStore from "memorystore";
 
@@ -18,6 +18,9 @@ export interface IStorage {
   getUserProperties(userId: number): Promise<Property[]>;
   searchProperties(criteria: PropertySearch): Promise<Property[]>;
   
+  // Financing operations
+  submitFinancingRequest(request: FinancingRequest): Promise<{ id: number; success: boolean }>;
+  
   // Session store
   sessionStore: session.SessionStore;
 }
@@ -25,19 +28,35 @@ export interface IStorage {
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
   private properties: Map<number, Property>;
+  private financingRequests: Map<number, FinancingRequest & { id: number; timestamp: string }>;
   public sessionStore: session.SessionStore;
   private userId: number = 1;
   private propertyId: number = 1;
+  private financingRequestId: number = 1;
 
   constructor() {
     this.users = new Map();
     this.properties = new Map();
+    this.financingRequests = new Map();
     this.sessionStore = new MemoryStore({
       checkPeriod: 86400000, // 24 hours
     });
     
     // Seed some initial properties
     this.seedProperties();
+  }
+  
+  async submitFinancingRequest(request: FinancingRequest): Promise<{ id: number; success: boolean }> {
+    const id = this.financingRequestId++;
+    const timestamp = new Date().toISOString();
+    
+    this.financingRequests.set(id, {
+      ...request,
+      id,
+      timestamp
+    });
+    
+    return { id, success: true };
   }
 
   async getUser(id: number): Promise<User | undefined> {

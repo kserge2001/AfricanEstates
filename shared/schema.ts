@@ -75,3 +75,20 @@ export const propertySearchSchema = z.object({
 });
 
 export type PropertySearch = z.infer<typeof propertySearchSchema>;
+
+// Financing Request Schema
+export const financingRequestSchema = z.object({
+  fullName: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email"),
+  city: z.string().min(1, "City is required"),
+  country: z.string().min(1, "Country is required"),
+  salary: z.number().positive("Salary must be a positive number"),
+  jobTitle: z.string().min(1, "Job title is required"),
+  loanAmount: z.number().positive("Loan amount must be a positive number"),
+  monthlyPayment: z.number().positive("Monthly payment must be a positive number"),
+  preferredCurrency: z.string().min(1, "Preferred currency is required"),
+  phoneNumber: z.string().optional(),
+  additionalComments: z.string().optional(),
+});
+
+export type FinancingRequest = z.infer<typeof financingRequestSchema>;

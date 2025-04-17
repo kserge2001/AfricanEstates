@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupAuth } from "./auth";
-import { insertPropertySchema, propertySearchSchema } from "@shared/schema";
+import { insertPropertySchema, propertySearchSchema, financingRequestSchema } from "@shared/schema";
 import { ZodError } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -97,6 +97,43 @@ export async function registerRoutes(app: Express): Promise<Server> {
       "Rwanda", "Senegal", "Ivory Coast", "Cameroon", "Namibia"
     ];
     res.json(countries);
+  });
+  
+  app.get("/api/currencies", async (_req, res) => {
+    // Return a static list of common African currencies
+    const currencies = [
+      { code: "USD", name: "US Dollar" },
+      { code: "NGN", name: "Nigerian Naira" },
+      { code: "KES", name: "Kenyan Shilling" },
+      { code: "ZAR", name: "South African Rand" },
+      { code: "GHS", name: "Ghanaian Cedi" },
+      { code: "EGP", name: "Egyptian Pound" },
+      { code: "TZS", name: "Tanzanian Shilling" },
+      { code: "MAD", name: "Moroccan Dirham" },
+      { code: "DZD", name: "Algerian Dinar" },
+      { code: "ETB", name: "Ethiopian Birr" },
+      { code: "UGX", name: "Ugandan Shilling" },
+      { code: "RWF", name: "Rwandan Franc" },
+      { code: "XOF", name: "West African CFA Franc" },
+      { code: "EUR", name: "Euro" }
+    ];
+    res.json(currencies);
+  });
+  
+  app.post("/api/financing", async (req, res) => {
+    try {
+      const financingData = financingRequestSchema.parse(req.body);
+      const result = await storage.submitFinancingRequest(financingData);
+      res.status(201).json({ 
+        message: "Financing request submitted successfully", 
+        requestId: result.id 
+      });
+    } catch (error) {
+      if (error instanceof ZodError) {
+        return res.status(400).json({ error: "Invalid financing request data", details: error.errors });
+      }
+      res.status(500).json({ error: "Failed to submit financing request" });
+    }
   });
 
   const httpServer = createServer(app);
