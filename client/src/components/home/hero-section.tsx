@@ -14,9 +14,12 @@ export function HeroSection() {
       </div>
 
       <div className="container mx-auto text-center relative z-10">
-        <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-6">
-          Find Your Perfect Home in Africa
+        <h1 className="font-bold text-3xl md:text-4xl lg:text-6xl text-white mb-2">
+          <span className="bg-gradient-to-r from-primary to-accent2 bg-clip-text text-transparent">afriHome</span>
         </h1>
+        <h2 className="font-bold text-2xl md:text-3xl lg:text-4xl text-white mb-6">
+          find your perfect home in africa
+        </h2>
         <p className="text-white text-lg mb-8 max-w-2xl mx-auto">
           Explore thousands of properties across African countries, from urban apartments to rural estates
         </p>

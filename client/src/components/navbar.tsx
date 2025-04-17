@@ -41,7 +41,7 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             <Link href="/" className="flex items-center">
                 <Home className="text-primary h-6 w-6 mr-2" />
-                <span className="font-bold text-secondary text-xl">AfriHome</span>
+                <span className="font-bold text-xl bg-gradient-to-r from-primary to-accent2 bg-clip-text text-transparent">afriHome</span>
             </Link>
             <div className="hidden md:flex space-x-6">
               {navLinks.map((link) => (
