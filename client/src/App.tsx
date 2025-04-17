@@ -9,6 +9,7 @@ import PropertyDetail from "@/pages/property-detail";
 import PostListing from "@/pages/post-listing";
 import Properties from "@/pages/properties";
 import Profile from "@/pages/profile";
+import FinancingForm from "@/pages/financing-form";
 import { ProtectedRoute } from "./lib/protected-route";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
@@ -24,6 +25,7 @@ function Router() {
           <Route path="/auth" component={AuthPage} />
           <Route path="/properties" component={Properties} />
           <Route path="/property/:id" component={PropertyDetail} />
+          <Route path="/financing" component={FinancingForm} />
           <ProtectedRoute path="/post-listing" component={PostListing} />
           <ProtectedRoute path="/profile" component={Profile} />
           <Route component={NotFound} />

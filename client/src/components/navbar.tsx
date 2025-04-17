@@ -31,6 +31,7 @@ export default function Navbar() {
     { name: "Buy", href: "/properties?listingType=sale" },
     { name: "Rent", href: "/properties?listingType=rent" },
     { name: "Sell", href: "/post-listing" },
+    { name: "Financing", href: "/financing" },
     { name: "About", href: "/about" }
   ];
 
