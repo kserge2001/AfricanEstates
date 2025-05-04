@@ -56,8 +56,3 @@ Our platform provides secure and transparent real estate transactions across Afr
 ✅ Flexible financing  
 ✅ Legal security  
 ✅ Construction monitoring  
-
----
-
-© 2024 [Your Company Name]. All Rights Reserved.  
-Contact: [Your Email] | Website: [Your URL]  
